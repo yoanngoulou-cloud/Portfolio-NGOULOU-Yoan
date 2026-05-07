@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NGOULOU Yoan | Portfolio BTS SIO SISR</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0d0f14;
+            --bg2: #13161e;
+            --card: #181c26;
+            --accent: #4f8ef7;
+            --accent2: #7dd3b0;
+            --text: #e8eaf0;
+            --muted: #8a90a2;
+            --border: #262b3a;
+            --header-h: 64px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        /* ── NAV ── */
+        header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: var(--header-h);
+            background: rgba(13,15,20,0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+        }
+
+        nav {
+            max-width: 1100px;
+            margin: 0 auto;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 32px;
+        }
+
+        nav h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            color: var(--text);
+        }
+
+        nav h1 span { color: var(--accent); }
+
+        nav ul {
+            display: flex;
+            gap: 8px;
+            list-style: none;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--muted);
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 6px 14px;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        nav ul li a:hover {
+            color: var(--text);
+            background: var(--border);
+        }
+
+        /* ── SECTIONS ── */
+        .section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 100px 32px 60px;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--text);
+            margin-bottom: 32px;
+            line-height: 1.2;
+        }
+
+        h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 10px;
+        }
+
+        p { color: var(--muted); margin-bottom: 12px; }
+
+        /* ── HERO ── */
+        #accueil {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-top: var(--header-h);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #accueil::before {
+            content: '';
+            position: absolute;
+            top: -200px; right: -200px;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(79,142,247,0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        #accueil::after {
+            content: '';
+            position: absolute;
+            bottom: -100px; left: -100px;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(125,211,176,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(79,142,247,0.1);
+            border: 1px solid rgba(79,142,247,0.3);
+            color: var(--accent);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            padding: 6px 14px;
+            border-radius: 100px;
+            margin-bottom: 24px;
+            width: fit-content;
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 6px; height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        .hero-title {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.05;
+            margin-bottom: 20px;
+        }
+
+        .hero-title span { color: var(--accent); }
+
+        .hero-sub {
+            font-size: 1.1rem;
+            color: var(--muted);
+            max-width: 520px;
+            margin-bottom: 40px;
+        }
+
+        .hero-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            background: var(--card);
+            border: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 6px 14px;
+            border-radius: 6px;
+        }
+
+        /* ── CARDS ── */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+            margin-top: 8px;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 28px;
+            transition: border-color 0.2s, transform 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .card:hover {
+            border-color: rgba(79,142,247,0.4);
+            transform: translateY(-3px);
+        }
+
+        .card:hover::before { opacity: 1; }
+
+        .card-icon {
+            width: 40px; height: 40px;
+            background: rgba(79,142,247,0.1);
+            border: 1px solid rgba(79,142,247,0.2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+        }
+
+        .card p { font-size: 0.9rem; margin-bottom: 0; }
+
+        .card ul {
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        .card ul li {
+            font-size: 0.875rem;
+            color: var(--muted);
+            padding: 4px 0;
+            padding-left: 16px;
+            position: relative;
+        }
+
+        .card ul li::before {
+            content: '›';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* ── COMPETENCES BADGE ── */
+        .competences {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 14px;
+        }
+
+        .comp-badge {
+            background: rgba(79,142,247,0.08);
+            border: 1px solid rgba(79,142,247,0.2);
+            color: var(--accent);
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 4px;
+            letter-spacing: 0.04em;
+        }
+
+        .comp-badge.green {
+            background: rgba(125,211,176,0.08);
+            border-color: rgba(125,211,176,0.2);
+            color: var(--accent2);
+        }
+
+        /* ── PARCOURS TIMELINE ── */
+        .timeline {
+            position: relative;
+            padding-left: 28px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 6px; top: 8px; bottom: 8px;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--accent), var(--accent2), transparent);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 32px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -24px; top: 8px;
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 2px solid var(--bg);
+        }
+
+        .timeline-date {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: 0.08em;
+            margin-bottom: 4px;
+        }
+
+        .timeline-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+
+        .timeline-sub {
+            font-size: 0.875rem;
+            color: var(--muted);
+        }
+
+        /* ── EXPÉRIENCE ── */
+        .exp-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 28px;
+            margin-bottom: 20px;
+        }
+
+        .exp-card h3 { margin-bottom: 4px; }
+        .exp-meta {
+            font-size: 0.8rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+
+        /* ── VEILLE ── */
+        .veille-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 14px;
+            margin-top: 20px;
+        }
+
+        .veille-link {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 16px 20px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.2s;
+        }
+
+        .veille-link:hover {
+            border-color: rgba(79,142,247,0.4);
+            background: rgba(79,142,247,0.05);
+        }
+
+        .veille-link span:first-child {
+            font-size: 1.2rem;
+        }
+
+        .veille-link span:last-child {
+            font-size: 0.875rem;
+            color: var(--muted);
+            font-weight: 500;
+        }
+
+        .veille-link:hover span:last-child { color: var(--text); }
+
+        /* ── ACTU VEILLE ── */
+        .actu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 14px;
+            margin-top: 20px;
+        }
+
+        .actu-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 18px 20px;
+            transition: all 0.2s;
+        }
+
+        .actu-card:hover {
+            border-color: rgba(79,142,247,0.4);
+            transform: translateY(-2px);
+        }
+
+        .actu-date {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .actu-card h4 {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .actu-card p {
+            font-size: 0.82rem;
+            color: var(--muted);
+            margin-bottom: 0;
+            line-height: 1.6;
+        }
+
+        .actu-tag {
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 4px;
+            background: rgba(125,211,176,0.08);
+            border: 1px solid rgba(125,211,176,0.2);
+            color: var(--accent2);
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 32px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+
+        /* ── DIVIDER ── */
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border), transparent);
+            margin: 0 32px;
+        }
+
+        /* ── GALERIE ── */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .gallery-thumb {
+            aspect-ratio: 16/9;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 1px solid var(--border);
+            position: relative;
+            background: var(--bg2);
+        }
+
+        .gallery-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s, opacity 0.3s;
+            opacity: 0.75;
+        }
+
+        .gallery-thumb:hover img {
+            transform: scale(1.06);
+            opacity: 1;
+        }
+
+        .gallery-thumb .overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(79,142,247,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.2s;
+            font-size: 1.4rem;
+        }
+
+        .gallery-thumb:hover .overlay { opacity: 1; }
+
+        .gallery-caption {
+            font-size: 0.7rem;
+            color: var(--muted);
+            text-align: center;
+            margin-top: 4px;
+            line-height: 1.3;
+        }
+
+        /* ── LIGHTBOX ── */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.92);
+            z-index: 999;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 24px;
+        }
+
+        .lightbox.active { display: flex; }
+
+        .lightbox img {
+            max-width: 90vw;
+            max-height: 80vh;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            object-fit: contain;
+        }
+
+        .lightbox-caption {
+            margin-top: 16px;
+            color: var(--muted);
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px; right: 24px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-size: 1.2rem;
+            width: 40px; height: 40px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .lightbox-close:hover { background: var(--border); }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--card);
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-size: 1.3rem;
+            width: 44px; height: 44px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .lightbox-nav:hover { background: var(--border); }
+        .lightbox-prev { left: 16px; }
+        .lightbox-next { right: 16px; }
+
+        .doc-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 16px;
+            background: rgba(79,142,247,0.08);
+            border: 1px solid rgba(79,142,247,0.25);
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 10px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background 0.2s, border-color 0.2s;
+        }
+
+        .doc-link:hover {
+            background: rgba(79,142,247,0.18);
+            border-color: rgba(79,142,247,0.5);
+            color: var(--text);
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 700px) {
+            nav ul { display: none; }
+            .hero-title { font-size: 2.4rem; }
+            .cards-grid { grid-template-columns: 1fr; }
+            .section { padding: 80px 20px 40px; }
+            .gallery { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        /* ── ANIMATIONS ── */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <h1>NGOULOU <span>Yoan</span></h1>
+            <ul>
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#apropos">À propos</a></li>
+                <li><a href="#parcours">Parcours</a></li>
+                <li><a href="#experience">Expériences</a></li>
+                <li><a href="#projets">Projets</a></li>
+                <li><a href="#veille">Veille</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero / Accueil -->
+    <section id="accueil" class="section">
+        <div class="hero-badge">BTS SIO – SISR · Session 2026</div>
+        <h1 class="hero-title">NGOULOU<br><span>Yoan</span></h1>
+        <p class="hero-sub">
+            Étudiant en BTS Services Informatiques aux Organisations,
+            option SISR — passionné par l'administration système, les réseaux
+            et la cybersécurité.
+        </p>
+        <div class="hero-tags">
+            <span class="tag">🖥️ Administration Linux / Windows</span>
+            <span class="tag">🌐 Réseaux & Infrastructure</span>
+            <span class="tag">🔒 Cybersécurité</span>
+            <span class="tag">📞 Téléphonie VoIP</span>
+            <span class="tag">🐳 Virtualisation</span>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- À propos -->
+    <section id="apropos" class="section fade-in">
+        <div class="section-label">Profil</div>
+        <h2>À propos</h2>
+        <p style="max-width:640px; font-size:1rem; color: var(--muted);">
+            Étudiant en BTS SIO option SISR à Iris MediaSchool Rouen, je me spécialise
+            dans l'infrastructure réseau, l'administration de systèmes Linux et Windows,
+            et la sécurité informatique. Mes projets couvrent aussi bien la téléphonie IP
+            que les tests d'intrusion en environnement contrôlé.
+        </p>
+        <div style="margin-top: 28px; display: flex; flex-wrap: wrap; gap: 14px;">
+            <div class="tag">Administration systèmes Windows / Linux</div>
+            <div class="tag">Réseaux : TCP/IP, VLAN, routage</div>
+            <div class="tag">Virtualisation VMware</div>
+            <div class="tag">VoIP & Téléphonie IP</div>
+            <div class="tag">Cybersécurité & Pentesting</div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Parcours -->
+    <section id="parcours" class="section fade-in">
+        <div class="section-label">Formation</div>
+        <h2>Parcours</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-date">2024 – 2026</div>
+                <div class="timeline-title">BTS SIO option SISR</div>
+                <div class="timeline-sub">IRIS MediaSchool – Rouen</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">2023 – 2024</div>
+                <div class="timeline-title">BUT Génie Électrique et Informatique Industrielle</div>
+                <div class="timeline-sub">IUT Mont-Saint-Aignan</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">2023</div>
+                <div class="timeline-title">Baccalauréat STI2D</div>
+                <div class="timeline-sub">Option Systèmes d'Information et Numérique</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Expériences -->
+    <section id="experience" class="section fade-in">
+        <div class="section-label">Expériences professionnelles</div>
+        <h2>Expériences</h2>
+
+        <div class="exp-card">
+            <h3>Assistant enseignant en informatique</h3>
+            <div class="exp-meta">Stage · 2019 – Université de Rouen, département Histoire</div>
+            <ul style="list-style:none;">
+                <li style="font-size:0.875rem; color:var(--muted); padding:4px 0 4px 16px; position:relative;">
+                    <span style="position:absolute;left:0;color:var(--accent);font-weight:700;">›</span>
+                    Formation à la mise en page de documents (LibreOffice)
+                </li>
+                <li style="font-size:0.875rem; color:var(--muted); padding:4px 0 4px 16px; position:relative;">
+                    <span style="position:absolute;left:0;color:var(--accent);font-weight:700;">›</span>
+                    Organisation des cours à l'aide de tableurs
+                </li>
+                <li style="font-size:0.875rem; color:var(--muted); padding:4px 0 4px 16px; position:relative;">
+                    <span style="position:absolute;left:0;color:var(--accent);font-weight:700;">›</span>
+                    Assistance informatique auprès des utilisateurs
+                </li>
+            </ul>
+        </div>
+
+        <div class="exp-card">
+            <h3>Employé polyvalent</h3>
+            <div class="exp-meta">Stage · 2018 – Leader Price</div>
+            <ul style="list-style:none;">
+                <li style="font-size:0.875rem; color:var(--muted); padding:4px 0 4px 16px; position:relative;">
+                    <span style="position:absolute;left:0;color:var(--accent);font-weight:700;">›</span>
+                    Gestion des rayons et des produits
+                </li>
+                <li style="font-size:0.875rem; color:var(--muted); padding:4px 0 4px 16px; position:relative;">
+                    <span style="position:absolute;left:0;color:var(--accent);font-weight:700;">›</span>
+                    Chargé de livraison et de l'inventaire
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Projets / PPE -->
+    <section id="projets" class="section fade-in">
+        <div class="section-label">Réalisations professionnelles – Épreuve E4/E5</div>
+        <h2>Projets & PPE</h2>
+
+        <div class="cards-grid">
+
+            <!-- PPE 1 – Infrastructure VM Ubuntu (avec outils de pentesting intégrés) -->
+            <div class="card">
+                <div class="card-icon">🔒</div>
+                <h3>Infrastructure sécurisée sur VM Ubuntu</h3>
+                <p>Mise en place d'une infrastructure sécurisée : SSH, Fail2ban, UFW, serveur DNS Bind9 et outils d'audit réseau et de pentesting en environnement contrôlé.</p>
+                <ul>
+                    <li>SSH – Accès distant chiffré</li>
+                    <li>Fail2ban – Protection anti force brute</li>
+                    <li>UFW – Pare-feu et filtrage réseau</li>
+                    <li>Bind9 – Serveur DNS local (zone NGL.local)</li>
+                    <li>Nmap – Scan réseau et détection de services</li>
+                    <li>Gobuster – Énumération de répertoires web</li>
+                    <li>John the Ripper – Test de robustesse des mots de passe</li>
+                    <li>Netcat – Tests de connectivité réseau</li>
+                </ul>
+                <div class="competences">
+                    <span class="comp-badge">Gérer le patrimoine</span>
+                    <span class="comp-badge">Répondre aux incidents</span>
+                    <span class="comp-badge green">Mettre à disposition</span>
+                    <span class="comp-badge green">Dvpt professionnel</span>
+                </div>
+                <a href="https://docs.google.com/document/d/12E4wUZFjpvRoSifbKqjPoK3JPrP7_TmE/edit" target="_blank" class="doc-link">
+                    📄 Voir la documentation PPE – VM Ubuntu
+                </a>
+            </div>
+
+            <!-- PPE 2 -->
+            <div class="card">
+                <div class="card-icon">📞</div>
+                <h3>Déploiement FreePBX – ATLANTIS ÉNERGIE</h3>
+                <p>Déploiement d'un IPBX open source FreePBX pour interconnecter 3 sites géographiques via téléphonie IP.</p>
+                <ul>
+                    <li>FreePBX 15.0.23 / Asterisk – Serveur VoIP</li>
+                    <li>Extensions SIP : Rouen (101/102), Caen (201/202), Le Havre (301/302)</li>
+                    <li>MicroSIP – Softphone de test</li>
+                    <li>VLAN 10 VoIP / VLAN 20 Data (Cisco)</li>
+                </ul>
+                <div class="competences">
+                    <span class="comp-badge">Gérer le patrimoine</span>
+                    <span class="comp-badge green">Mettre à disposition</span>
+                    <span class="comp-badge">Mode projet</span>
+                </div>
+                <a href="https://docs.google.com/document/d/16AufYFLZNd9-phb2VNQEm3Wzx_GIgBEU/edit" target="_blank" class="doc-link">
+                    📄 Voir la documentation PPE – FreePBX ATLANTIS ÉNERGIE
+                </a>
+            </div>
+
+            <!-- PPE 3 – Active Directory -->
+            <div class="card">
+                <div class="card-icon">🏢</div>
+                <h3>Déploiement et gestion d'Active Directory</h3>
+                <p>Déploiement d'un Active Directory Windows Server pour centraliser l'administration des utilisateurs et des accès.</p>
+                <ul>
+                    <li>Windows Server – Rôle AD DS</li>
+                    <li>Création d'UO, utilisateurs et groupes</li>
+                    <li>GPO – Stratégies de groupe</li>
+                    <li>Gestion des permissions et sécurisation des accès</li>
+                </ul>
+                <div class="competences">
+                    <span class="comp-badge">Gérer le patrimoine</span>
+                    <span class="comp-badge green">Mettre à disposition</span>
+                    <span class="comp-badge">Répondre aux incidents</span>
+                </div>
+            </div>
+
+            <!-- PPE 4 – Docker -->
+            <div class="card">
+                <div class="card-icon">🐳</div>
+                <h3>Serveur Web avec conteneurisation Docker</h3>
+                <p>Déploiement d'un serveur web sécurisé via Docker Compose sur Ubuntu Server 24.04, avec Nginx, PHP 8.2, MySQL 8 et HTTPS.</p>
+                <ul>
+                    <li>Docker Compose – Nginx, PHP 8.2-FPM, MySQL 8</li>
+                    <li>Sécurisation HTTPS – Certificat SSL auto-signé OpenSSL</li>
+                    <li>VMware Workstation – VM Ubuntu Server 24.04 LTS</li>
+                    <li>Tests de validation et résolution des incidents</li>
+                </ul>
+                <div class="competences">
+                    <span class="comp-badge">Gérer le patrimoine</span>
+                    <span class="comp-badge green">Mettre à disposition</span>
+                    <span class="comp-badge">Mode projet</span>
+                    <span class="comp-badge green">Dvpt professionnel</span>
+                </div>
+                <a href="doc_technique_ppe.docx" download class="doc-link">
+                    📄 Télécharger la documentation PPE – Docker
+                </a>
+            </div>
+
+            <!-- PPE 5 – Zabbix -->
+            <div class="card">
+                <div class="card-icon">📡</div>
+                <h3>Supervision réseau avec Zabbix 6.0</h3>
+                <p>Mise en place d'une solution de supervision continue d'un parc informatique virtualisé à l'aide de Zabbix 6.0.45, incluant alertes et tableaux de bord temps réel.</p>
+                <ul>
+                    <li>Zabbix 6.0 LTS – Serveur sur Ubuntu Server 22.04</li>
+                    <li>Zabbix Agent 2 – Déployé sur VMs Linux &amp; Windows Server 2022</li>
+                    <li>MySQL 8.0 &amp; Apache2 – Base de données et interface web</li>
+                    <li>Templates, triggers &amp; alertes email configurés</li>
+                    <li>Tests de panne simulés et validation complète du parc</li>
+                </ul>
+                <div class="competences">
+                    <span class="comp-badge">Gérer le patrimoine</span>
+                    <span class="comp-badge">Répondre aux incidents</span>
+                    <span class="comp-badge green">Mettre à disposition</span>
+                    <span class="comp-badge green">Dvpt professionnel</span>
+                </div>
+                <a href="https://docs.google.com/document/d/17jcAQR8PBOGKpHimuUw4_Y-hs9RDri1a/edit" target="_blank" class="doc-link">
+                    📄 Voir la documentation PPE – Zabbix 6.0
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Veille technologique -->
+    <section id="veille" class="section fade-in">
+        <div class="section-label">Veille technologique</div>
+        <h2>Veille</h2>
+        <p style="max-width:560px;">
+            Ma veille porte sur la cybersécurité, la virtualisation et les nouvelles infrastructures réseau.
+            Je consulte régulièrement ces sources pour rester informé des dernières menaces et évolutions technologiques.
+        </p>
+
+        <div style="display:flex; flex-wrap:wrap; gap:10px; margin: 20px 0 32px;">
+            <span class="tag">🔒 Cybersécurité</span>
+            <span class="tag">☁️ Virtualisation</span>
+            <span class="tag">🌐 Cloud computing</span>
+            <span class="tag">🖧 Infrastructure réseau</span>
+        </div>
+
+        <!-- Actualités récentes -->
+        <div class="section-label" style="margin-bottom:8px;">Actualités récentes – Mai 2026</div>
+        <div class="actu-grid">
+
+            <div class="actu-card">
+                <div class="actu-date">Mai 2026</div>
+                <h4>+200M€ pour la cybersécurité de l'État français</h4>
+                <p>Après le piratage de l'ANTS (données personnelles de millions d'usagers), le ministère des Armées a débloqué une enveloppe d'urgence pour moderniser les systèmes d'information des ministères, avec une moyenne de 3 incidents par jour en France.</p>
+                <span class="actu-tag">France</span>
+            </div>
+
+            <div class="actu-card">
+                <div class="actu-date">Mai 2026</div>
+                <h4>NIS2 en vigueur : nouvelles obligations pour 18 secteurs</h4>
+                <p>La directive NIS2, applicable depuis janvier 2026, impose aux entreprises de déclarer tout incident sous 24h à l'ANSSI, d'activer l'authentification multifacteur et de former leurs employés. Sanctions : jusqu'à 2% du CA mondial.</p>
+                <span class="actu-tag">Réglementation</span>
+            </div>
+
+            <div class="actu-card">
+                <div class="actu-date">Mai 2026</div>
+                <h4>Faille "Copy Fail" : escalade root sur Linux en 4 octets</h4>
+                <p>Une vulnérabilité critique permet d'obtenir les droits administrateur sur la majorité des distributions Linux en injectant seulement quatre octets en RAM, sans aucune écriture disque — rendant la compromission très difficile à détecter.</p>
+                <span class="actu-tag">Vulnérabilité</span>
+            </div>
+
+            <div class="actu-card">
+                <div class="actu-date">Mai 2026</div>
+                <h4>IA générative : 40% des attaques phishing dopées à l'IA</h4>
+                <p>Selon Capgemini, 40% des campagnes de phishing intègrent désormais des contenus générés par IA. Google Cloud prévient que l'IA sera la norme en 2026 tant pour les attaquants que pour les défenseurs, créant de nouveaux risques (shadow agents).</p>
+                <span class="actu-tag">IA & Menaces</span>
+            </div>
+
+            <div class="actu-card">
+                <div class="actu-date">Mai 2026</div>
+                <h4>Ransomware : 7 831 victimes recensées dans le monde en 2025</h4>
+                <p>Les attaques par rançongiciel ont connu une hausse spectaculaire, avec une augmentation de 45% des cyberattaques en France par rapport à 2025. Le secteur de la santé reste le plus touché avec 32% des incidents recensés.</p>
+                <span class="actu-tag">Ransomware</span>
+            </div>
+
+            <div class="actu-card">
+                <div class="actu-date">Mai 2026</div>
+                <h4>GitHub : faille RCE critique corrigée (CVE-2026-3854)</h4>
+                <p>GitHub a corrigé en mars une vulnérabilité d'exécution de code à distance qui aurait pu exposer des millions de dépôts privés. Microsoft bloquera également les connexions TLS héritées pour POP/IMAP dans Exchange Online dès juillet 2026.</p>
+                <span class="actu-tag">Vulnérabilité</span>
+            </div>
+
+        </div>
+
+        <!-- Sources -->
+        <div class="section-label" style="margin-top:40px; margin-bottom:16px;">Sources consultées</div>
+        <div class="veille-grid">
+            <a href="https://www.cert.ssi.gouv.fr" target="_blank" class="veille-link">
+                <span>🇫🇷</span>
+                <span>CERT-FR – Alertes de sécurité</span>
+            </a>
+            <a href="https://thehackernews.com" target="_blank" class="veille-link">
+                <span>📰</span>
+                <span>The Hacker News</span>
+            </a>
+            <a href="https://www.securityweek.com" target="_blank" class="veille-link">
+                <span>🛡️</span>
+                <span>SecurityWeek</span>
+            </a>
+            <a href="https://www.zataz.com" target="_blank" class="veille-link">
+                <span>🔍</span>
+                <span>ZATAZ – Cybercriminalité</span>
+            </a>
+            <a href="https://www.01net.com" target="_blank" class="veille-link">
+                <span>💻</span>
+                <span>01net – Actualités IT</span>
+            </a>
+            <a href="https://www.networkworld.com" target="_blank" class="veille-link">
+                <span>🌐</span>
+                <span>Network World</span>
+            </a>
+            <a href="https://nvd.nist.gov" target="_blank" class="veille-link">
+                <span>⚠️</span>
+                <span>NVD (NIST) – Vulnérabilités</span>
+            </a>
+            <a href="https://news.ycombinator.com" target="_blank" class="veille-link">
+                <span>🟠</span>
+                <span>Hacker News</span>
+            </a>
+            <a href="https://dcod.ch" target="_blank" class="veille-link">
+                <span>📡</span>
+                <span>DCOD – Veille cyber hebdo</span>
+            </a>
+            <a href="https://isisec.net" target="_blank" class="veille-link">
+                <span>🔐</span>
+                <span>ISI Sec – Actualités cyber France</span>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 – NGOULOU Yoan · BTS SIO option SISR · Iris MediaSchool Rouen</p>
+    </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightboxOutside(event)">
+        <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+        <button class="lightbox-nav lightbox-prev" onclick="navLightbox(-1)">‹</button>
+        <img id="lightbox-img" src="" alt="">
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+        <button class="lightbox-nav lightbox-next" onclick="navLightbox(1)">›</button>
+    </div>
+
+    <script>
+        // Fade-in on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) e.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Active nav link
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('nav ul li a');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(s => {
+                if (window.scrollY >= s.offsetTop - 80) current = s.id;
+            });
+            navLinks.forEach(a => {
+                const active = a.getAttribute('href') === '#' + current;
+                a.style.color = active ? 'var(--text)' : '';
+                a.style.background = active ? 'var(--border)' : '';
+            });
+        });
+
+        // Gallery toggle
+        function toggleGallery(id, btn) {
+            const el = document.getElementById(id);
+            const open = el.classList.toggle('open');
+            btn.textContent = open
+                ? btn.textContent.replace('Voir', 'Masquer')
+                : btn.textContent.replace('Masquer', 'Voir');
+        }
+
+        // Lightbox data
+        const galleries = {
+            ubuntu: [
+                { src: 'ubuntu_3.png', caption: 'Fail2ban – Jail SSHD active, 1 IP bannie' },
+                { src: 'ubuntu_4.png', caption: 'UFW – Règles de filtrage actives' },
+                { src: 'ubuntu_2.png', caption: 'Bind9 – Service DNS actif (running)' },
+                { src: 'ubuntu_1.png', caption: 'nslookup – Résolution DNS : serveur.NGL.local' },
+                { src: 'ubuntu_5.png', caption: 'Nmap – Scan réseau 192.168.110.50' },
+                { src: 'ubuntu_6.png', caption: 'Gobuster – Énumération de répertoires web' },
+            ],
+            freepbx: [
+                { src: 'freepbx_1.png', caption: 'Console FreePBX – Configuration réseau (IP : 192.168.1.65)' },
+                { src: 'freepbx_2.png', caption: 'Interface web – Assistant de configuration initiale' },
+                { src: 'freepbx_3.png', caption: 'Dashboard FreePBX – Tous les services actifs' },
+                { src: 'freepbx_4.png', caption: 'Extension 24 – Configuration PJSIP + MicroSIP connecté' },
+                { src: 'freepbx_5.png', caption: 'Test appel – Extension 24 → 26 (Connecté 0:01)' },
+                { src: 'freepbx_6.png', caption: 'Liste des extensions – 101, 102, 201, 202, 301...' },
+                { src: 'freepbx_7.png', caption: 'Journal MicroSIP – Appels réussis vers 10.0.0.142' },
+                { src: 'freepbx_8.png', caption: 'Appel inter-sites – Extension 301 (Le Havre) → 202 (Caen)' },
+            ]
+        };
+
+        let currentGallery = '';
+        let currentIndex = 0;
+
+        function openLightbox(gallery, index) {
+            currentGallery = gallery;
+            currentIndex = index;
+            updateLightbox();
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function updateLightbox() {
+            const item = galleries[currentGallery][currentIndex];
+            document.getElementById('lightbox-img').src = item.src;
+            document.getElementById('lightbox-caption').textContent =
+                `${currentIndex + 1} / ${galleries[currentGallery].length} — ${item.caption}`;
+        }
+
+        function navLightbox(dir) {
+            const len = galleries[currentGallery].length;
+            currentIndex = (currentIndex + dir + len) % len;
+            updateLightbox();
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function closeLightboxOutside(e) {
+            if (e.target.id === 'lightbox') closeLightbox();
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', e => {
+            if (!document.getElementById('lightbox').classList.contains('active')) return;
+            if (e.key === 'ArrowRight') navLightbox(1);
+            if (e.key === 'ArrowLeft') navLightbox(-1);
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
+
+</body>
+</html>
