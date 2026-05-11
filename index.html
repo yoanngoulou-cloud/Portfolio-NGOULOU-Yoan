@@ -162,6 +162,8 @@
 
         /* ── FOOTER ── */
         footer { border-top: 1px solid var(--border); padding: 32px; text-align: center; color: var(--muted); font-size: 0.85rem; }
+        footer a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+        footer a:hover { color: var(--accent); }
 
         /* ── DIVIDER ── */
         .divider { height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); margin: 0 32px; }
@@ -257,6 +259,68 @@
             text-transform: uppercase;
             padding: 9px 14px;
         }
+
+        /* ── MENTIONS LÉGALES MODAL ── */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.85);
+            z-index: 200;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+        .modal-overlay.active { display: flex; }
+        .modal-box {
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            max-width: 680px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        .modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px 28px 20px;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background: var(--bg2);
+            z-index: 1;
+        }
+        .modal-header h3 { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 800; color: var(--text); margin: 0; }
+        .modal-close {
+            background: var(--card);
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-size: 1rem;
+            width: 36px; height: 36px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: background 0.2s;
+        }
+        .modal-close:hover { background: var(--border); }
+        .modal-body { padding: 28px; }
+        .modal-body h4 {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin: 24px 0 8px;
+        }
+        .modal-body h4:first-child { margin-top: 0; }
+        .modal-body p { font-size: 0.875rem; color: var(--muted); margin-bottom: 0; line-height: 1.7; }
+        .modal-body a { color: var(--accent); text-decoration: none; }
+        .modal-body a:hover { text-decoration: underline; }
+        .modal-divider { height: 1px; background: var(--border); margin: 20px 0; }
 
         /* ── RESPONSIVE ── */
         @media (max-width: 700px) {
@@ -648,7 +712,73 @@
 
     <footer>
         <p>© 2026 – NGOULOU Yoan · BTS SIO option SISR · Iris MediaSchool Rouen</p>
+        <p style="margin-top:10px;">
+            <a href="#" onclick="openMentions(event)">Mentions légales</a>
+        </p>
     </footer>
+
+    <!-- Modal Mentions Légales -->
+    <div class="modal-overlay" id="mentionsModal" onclick="closeMentionsOutside(event)">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3>⚖️ Mentions légales</h3>
+                <button class="modal-close" onclick="closeMentions()">✕</button>
+            </div>
+            <div class="modal-body">
+
+                <h4>Éditeur du site</h4>
+                <p>
+                    Ce site est un portfolio personnel réalisé dans le cadre du BTS SIO option SISR, session 2026.<br>
+                    <strong style="color:var(--text);">NGOULOU Yoan</strong><br>
+                    Étudiant à IRIS MediaSchool – Rouen<br>
+                    Contact : <a href="mailto:yoanngoulou@gmail.com">yoanngoulou@gmail.com</a>
+                </p>
+
+                <div class="modal-divider"></div>
+
+                <h4>Hébergement</h4>
+                <p>
+                    Ce site est hébergé par <strong style="color:var(--text);">GitHub Pages</strong>, service de GitHub Inc.<br>
+                    88 Colin P Kelly Jr Street, San Francisco, CA 94107, États-Unis.<br>
+                    Site : <a href="https://pages.github.com" target="_blank">pages.github.com</a>
+                </p>
+
+                <div class="modal-divider"></div>
+
+                <h4>Propriété intellectuelle</h4>
+                <p>
+                    L'ensemble du contenu de ce site (textes, réalisations, documentation, structure) est la propriété exclusive de NGOULOU Yoan, sauf mention contraire.
+                    Toute reproduction, même partielle, est interdite sans autorisation préalable.
+                </p>
+
+                <div class="modal-divider"></div>
+
+                <h4>Données personnelles & RGPD</h4>
+                <p>
+                    Ce site ne collecte aucune donnée personnelle, ne dépose aucun cookie de traçage et n'utilise aucun outil d'analyse statistique.
+                    Les seules données présentes sont celles volontairement renseignées par l'auteur (coordonnées de contact).
+                    Conformément au Règlement Général sur la Protection des Données (RGPD – UE 2016/679), vous disposez d'un droit d'accès, de rectification et de suppression en contactant : <a href="mailto:yoanngoulou@gmail.com">yoanngoulou@gmail.com</a>
+                </p>
+
+                <div class="modal-divider"></div>
+
+                <h4>Responsabilité</h4>
+                <p>
+                    Les liens hypertextes présents sur ce site renvoient vers des ressources externes (Google Docs, GitHub).
+                    NGOULOU Yoan ne saurait être tenu responsable du contenu de ces sites tiers.
+                    Les informations publiées sont fournies à titre indicatif et peuvent évoluer sans préavis.
+                </p>
+
+                <div class="modal-divider"></div>
+
+                <h4>Loi applicable</h4>
+                <p>
+                    Ce site est soumis au droit français. Tout litige relatif à son utilisation sera de la compétence exclusive des juridictions françaises compétentes.
+                </p>
+
+            </div>
+        </div>
+    </div>
 
     <!-- Lightbox -->
     <div class="lightbox" id="lightbox" onclick="closeLightboxOutside(event)">
@@ -677,6 +807,21 @@
             });
         });
 
+        // Mentions légales
+        function openMentions(e) {
+            e.preventDefault();
+            document.getElementById('mentionsModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeMentions() {
+            document.getElementById('mentionsModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        function closeMentionsOutside(e) {
+            if (e.target.id === 'mentionsModal') closeMentions();
+        }
+
+        // Lightbox
         const galleries = {
             ubuntu: [
                 { src: 'ubuntu_3.png', caption: 'Fail2ban – Jail SSHD active, 1 IP bannie' },
@@ -720,6 +865,10 @@
         }
         function closeLightboxOutside(e) { if (e.target.id === 'lightbox') closeLightbox(); }
         document.addEventListener('keydown', e => {
+            if (document.getElementById('mentionsModal').classList.contains('active')) {
+                if (e.key === 'Escape') closeMentions();
+                return;
+            }
             if (!document.getElementById('lightbox').classList.contains('active')) return;
             if (e.key === 'ArrowRight') navLightbox(1);
             if (e.key === 'ArrowLeft') navLightbox(-1);
