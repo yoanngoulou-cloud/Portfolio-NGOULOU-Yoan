@@ -153,12 +153,15 @@
 
         /* ── ACTU ── */
         .actu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; margin-top: 20px; }
-        .actu-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; transition: all 0.2s; }
+        .actu-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; transition: all 0.2s; display: flex; flex-direction: column; }
         .actu-card:hover { border-color: rgba(79,142,247,0.4); transform: translateY(-2px); }
         .actu-date { font-size: 0.7rem; font-weight: 600; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; }
         .actu-card h4 { font-family: 'Syne', sans-serif; font-size: 0.9rem; font-weight: 700; color: var(--text); margin-bottom: 8px; line-height: 1.4; }
-        .actu-card p { font-size: 0.82rem; color: var(--muted); margin-bottom: 0; line-height: 1.6; }
-        .actu-tag { display: inline-block; margin-top: 10px; font-size: 0.7rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; background: rgba(125,211,176,0.08); border: 1px solid rgba(125,211,176,0.2); color: var(--accent2); }
+        .actu-card p { font-size: 0.82rem; color: var(--muted); margin-bottom: 0; line-height: 1.6; flex: 1; }
+        .actu-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 12px; flex-wrap: wrap; gap: 8px; }
+        .actu-tag { display: inline-block; font-size: 0.7rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; background: rgba(125,211,176,0.08); border: 1px solid rgba(125,211,176,0.2); color: var(--accent2); }
+        .actu-source { display: inline-flex; align-items: center; gap: 5px; font-size: 0.72rem; color: var(--accent); font-weight: 600; text-decoration: none; border: 1px solid rgba(79,142,247,0.25); background: rgba(79,142,247,0.07); padding: 2px 9px; border-radius: 4px; transition: background 0.2s; }
+        .actu-source:hover { background: rgba(79,142,247,0.18); color: var(--text); }
 
         /* ── FOOTER ── */
         footer { border-top: 1px solid var(--border); padding: 32px; text-align: center; color: var(--muted); font-size: 0.85rem; }
@@ -683,42 +686,37 @@
 
         <div class="section-label" style="margin-bottom:8px;">Actualités récentes – Mai 2026</div>
         <div class="actu-grid">
+
             <div class="actu-card">
-                <div class="actu-date">Mai 2026</div>
-                <h4>+200M€ pour la cybersécurité de l'État français</h4>
-                <p>Après le piratage de l'ANTS (données personnelles de millions d'usagers), le ministère des Armées a débloqué une enveloppe d'urgence pour moderniser les systèmes d'information des ministères, avec une moyenne de 3 incidents par jour en France.</p>
-                <span class="actu-tag">France</span>
+                <div class="actu-date">Mars 2026</div>
+                <h4>Ransomware & cybermenaces : bilan 2025 de l'ANSSI</h4>
+                <p>L'ANSSI a traité 1 366 incidents confirmés en 2025, dont 128 attaques par rançongiciel. Les PME et TPE représentent 48 % des victimes. Les exfiltrations de données ont bondi de 51 %, et l'éducation reste le secteur le plus touché (34 % des incidents).</p>
+                <div class="actu-footer">
+                    <span class="actu-tag">Ransomware</span>
+                    <a href="https://cyber.gouv.fr/actualites/panorama-de-la-cybermenace-2025/" target="_blank" class="actu-source">↗ ANSSI – Source officielle</a>
+                </div>
             </div>
+
             <div class="actu-card">
-                <div class="actu-date">Mai 2026</div>
-                <h4>NIS2 en vigueur : nouvelles obligations pour 18 secteurs</h4>
-                <p>La directive NIS2, applicable depuis janvier 2026, impose aux entreprises de déclarer tout incident sous 24h à l'ANSSI, d'activer l'authentification multifacteur et de former leurs employés. Sanctions : jusqu'à 2% du CA mondial.</p>
-                <span class="actu-tag">Réglementation</span>
+                <div class="actu-date">Avril – Mai 2026</div>
+                <h4>Faille "Copy Fail" (CVE-2026-31431) : escalade root sur Linux</h4>
+                <p>Une vulnérabilité critique dans le noyau Linux, présente depuis 2017, permet d'obtenir les droits root via un script de 732 octets seulement. Ajoutée au catalogue CISA le 1er mai 2026. Des correctifs ont été publiés par Ubuntu, AlmaLinux et RHEL.</p>
+                <div class="actu-footer">
+                    <span class="actu-tag">Vulnérabilité</span>
+                    <a href="https://www.lemondeinformatique.fr/actualites/lire-la-faille-copyfail-menace-le-monde-linux-100079.html" target="_blank" class="actu-source">↗ Le Monde Informatique</a>
+                </div>
             </div>
+
             <div class="actu-card">
-                <div class="actu-date">Mai 2026</div>
-                <h4>Faille "Copy Fail" : escalade root sur Linux en 4 octets</h4>
-                <p>Une vulnérabilité critique permet d'obtenir les droits administrateur sur la majorité des distributions Linux en injectant seulement quatre octets en RAM, sans aucune écriture disque — rendant la compromission très difficile à détecter.</p>
-                <span class="actu-tag">Vulnérabilité</span>
+                <div class="actu-date">2026</div>
+                <h4>NIS2 en vigueur : nouvelles obligations pour 15 000 entreprises françaises</h4>
+                <p>La directive NIS2, dont la transposition française est en cours, imposera à environ 15 000 entités de notifier tout incident à l'ANSSI, d'activer le MFA et de former leurs équipes. L'ANSSI a publié le Référentiel Cyber France (ReCyF) le 17 mars 2026 pour accompagner la mise en conformité.</p>
+                <div class="actu-footer">
+                    <span class="actu-tag">Réglementation</span>
+                    <a href="https://cyber.gouv.fr/reglementation/cybersecurite-systemes-dinformation/directives-nis-nis2-et-dispositif-saiv/directive-nis-2/" target="_blank" class="actu-source">↗ ANSSI – Source officielle</a>
+                </div>
             </div>
-            <div class="actu-card">
-                <div class="actu-date">Mai 2026</div>
-                <h4>IA générative : 40% des attaques phishing dopées à l'IA</h4>
-                <p>Selon Capgemini, 40% des campagnes de phishing intègrent désormais des contenus générés par IA. Google Cloud prévient que l'IA sera la norme en 2026 tant pour les attaquants que pour les défenseurs, créant de nouveaux risques (shadow agents).</p>
-                <span class="actu-tag">IA & Menaces</span>
-            </div>
-            <div class="actu-card">
-                <div class="actu-date">Mai 2026</div>
-                <h4>Ransomware : 7 831 victimes recensées dans le monde en 2025</h4>
-                <p>Les attaques par rançongiciel ont connu une hausse spectaculaire, avec une augmentation de 45% des cyberattaques en France par rapport à 2025. Le secteur de la santé reste le plus touché avec 32% des incidents recensés.</p>
-                <span class="actu-tag">Ransomware</span>
-            </div>
-            <div class="actu-card">
-                <div class="actu-date">Mai 2026</div>
-                <h4>GitHub : faille RCE critique corrigée (CVE-2026-3854)</h4>
-                <p>GitHub a corrigé en mars une vulnérabilité d'exécution de code à distance qui aurait pu exposer des millions de dépôts privés. Microsoft bloquera également les connexions TLS héritées pour POP/IMAP dans Exchange Online dès juillet 2026.</p>
-                <span class="actu-tag">Vulnérabilité</span>
-            </div>
+
         </div>
 
     </section>
