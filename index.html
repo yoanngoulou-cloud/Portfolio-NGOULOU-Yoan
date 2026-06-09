@@ -147,7 +147,6 @@
         .actu-source { display: inline-flex; align-items: center; gap: 5px; font-size: 0.72rem; color: var(--accent); font-weight: 600; text-decoration: none; border: 1px solid rgba(79,142,247,0.25); background: rgba(79,142,247,0.07); padding: 2px 9px; border-radius: 4px; transition: background 0.2s; }
         .actu-source:hover { background: rgba(79,142,247,0.18); color: var(--text); }
 
-        /* Bloc résumé personnel sous chaque article de veille */
         .actu-summary {
             margin-top: 10px;
             padding: 10px 12px;
@@ -222,6 +221,24 @@
         .modal-body a:hover { text-decoration: underline; }
         .modal-divider { height: 1px; background: var(--border); margin: 20px 0; }
 
+        /* Ambitions section – accent rouge/orange pour différencier visuellement */
+        #ambitions .card-icon {
+            background: rgba(247, 130, 79, 0.10);
+            border-color: rgba(247, 130, 79, 0.20);
+        }
+        #ambitions .card:hover { border-color: rgba(247, 130, 79, 0.45); }
+        #ambitions .card::before { background: linear-gradient(90deg, #f7824f, var(--accent2)); }
+        #ambitions .comp-badge {
+            background: rgba(247, 130, 79, 0.08);
+            border-color: rgba(247, 130, 79, 0.25);
+            color: #f7a87a;
+        }
+        #ambitions .comp-badge.green {
+            background: rgba(125,211,176,0.08);
+            border-color: rgba(125,211,176,0.2);
+            color: var(--accent2);
+        }
+
         @media (max-width: 700px) {
             nav ul { display: none; }
             .hero-title { font-size: 2.4rem; }
@@ -241,6 +258,7 @@
             <ul>
                 <li><a href="#accueil">Accueil</a></li>
                 <li><a href="#apropos">À propos</a></li>
+                <li><a href="#ambitions">Ambitions</a></li>
                 <li><a href="#parcours">Parcours</a></li>
                 <li><a href="#experience">Expériences</a></li>
                 <li><a href="#projets">Projets</a></li>
@@ -289,6 +307,51 @@
 
     <div class="divider"></div>
 
+    <!-- ─── AMBITIONS – nouveau bloc ─── -->
+    <section id="ambitions" class="section fade-in">
+        <div class="section-label">Projet professionnel</div>
+        <h2>Ambitions</h2>
+        <p style="max-width:680px; font-size:1rem; color: var(--muted); margin-bottom: 12px;">
+            Je ne sais pas encore précisément vers quel métier je me dirigerai, mais mon stage
+            d'audit de sécurité a été une vraie révélation. En manipulant des outils comme
+            <strong style="color: var(--text);">Nmap, Burp Suite ou John the Ripper</strong>,
+            j'ai découvert un domaine qui m'a immédiatement passionné : comprendre comment les systèmes
+            peuvent être compromis pour mieux les défendre.
+        </p>
+        <p style="max-width:680px; font-size:1rem; color: var(--muted); margin-bottom: 32px;">
+            Cette expérience m'a donné envie d'approfondir la sécurité offensive et de m'orienter,
+            si possible, vers le <strong style="color: var(--text);">pentesting</strong>.
+            C'est une piste que je souhaite explorer sérieusement après le BTS.
+        </p>
+        <div class="cards-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+
+            <div class="card">
+                <div class="card-icon">💡</div>
+                <h3>Ce que le stage a déclenché</h3>
+                <p>Lors de mon stage d'audit, j'ai eu l'occasion d'utiliser des outils offensifs en environnement contrôlé. Voir concrètement comment une vulnérabilité peut être exploitée — et comment s'en prémunir — a été une expérience marquante.</p>
+                <ul>
+                    <li>Nmap – Cartographie réseau et détection de services</li>
+                    <li>Burp Suite – Analyse de trafic web</li>
+                    <li>John the Ripper – Test de robustesse des mots de passe</li>
+                    <li>Wireshark – Analyse de paquets réseau</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🧭</div>
+                <h3>Une orientation à construire</h3>
+                <p>Je n'ai pas encore de certitude sur mon parcours exact, mais le pentesting est la voie qui m'attire le plus. Je compte prendre le temps de me former correctement et d'explorer ce domaine après le BTS, que ce soit en poursuite d'études ou en apprentissage autodidacte.</p>
+                <div class="competences">
+                    <span class="comp-badge">Sécurité offensive</span>
+                    <span class="comp-badge green">En cours d'exploration</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
     <section id="parcours" class="section fade-in">
         <div class="section-label">Formation</div>
         <h2>Parcours</h2>
@@ -313,7 +376,6 @@
 
     <div class="divider"></div>
 
-    <!-- ─── EXPÉRIENCES — stage audit sécurité 2025-2026 ajouté en tête ─── -->
     <section id="experience" class="section fade-in">
         <div class="section-label">Expériences professionnelles</div>
         <h2>Expériences</h2>
@@ -570,7 +632,6 @@
 
     <div class="divider"></div>
 
-    <!-- ─── VEILLE — résumés personnels ajoutés sous chaque article ─── -->
     <section id="veille" class="section fade-in">
         <div class="section-label">Veille technologique</div>
         <h2>Veille</h2>
