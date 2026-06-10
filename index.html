@@ -147,44 +147,11 @@
         .actu-source { display: inline-flex; align-items: center; gap: 5px; font-size: 0.72rem; color: var(--accent); font-weight: 600; text-decoration: none; border: 1px solid rgba(79,142,247,0.25); background: rgba(79,142,247,0.07); padding: 2px 9px; border-radius: 4px; transition: background 0.2s; }
         .actu-source:hover { background: rgba(79,142,247,0.18); color: var(--text); }
 
-        .actu-summary {
-            margin-top: 10px;
-            padding: 10px 12px;
-            background: rgba(79,142,247,0.05);
-            border-left: 2px solid rgba(79,142,247,0.4);
-            border-radius: 0 6px 6px 0;
-        }
-        .actu-summary-label {
-            font-size: 0.65rem;
-            font-weight: 700;
-            color: var(--accent);
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            margin-bottom: 4px;
-        }
-        .actu-summary p {
-            font-size: 0.78rem;
-            color: var(--muted);
-            line-height: 1.55;
-            margin-bottom: 0;
-        }
-
         footer { border-top: 1px solid var(--border); padding: 32px; text-align: center; color: var(--muted); font-size: 0.85rem; }
         footer a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
         footer a:hover { color: var(--accent); }
 
         .divider { height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); margin: 0 32px; }
-
-        .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.92); z-index: 999; align-items: center; justify-content: center; flex-direction: column; padding: 24px; }
-        .lightbox.active { display: flex; }
-        .lightbox img { max-width: 90vw; max-height: 80vh; border-radius: 10px; border: 1px solid var(--border); object-fit: contain; }
-        .lightbox-caption { margin-top: 16px; color: var(--muted); font-size: 0.9rem; text-align: center; }
-        .lightbox-close { position: absolute; top: 20px; right: 24px; background: var(--card); border: 1px solid var(--border); color: var(--text); font-size: 1.2rem; width: 40px; height: 40px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
-        .lightbox-close:hover { background: var(--border); }
-        .lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); background: var(--card); border: 1px solid var(--border); color: var(--text); font-size: 1.3rem; width: 44px; height: 44px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
-        .lightbox-nav:hover { background: var(--border); }
-        .lightbox-prev { left: 16px; }
-        .lightbox-next { right: 16px; }
 
         .doc-link { display: flex; align-items: center; gap: 10px; margin-top: 16px; background: rgba(79,142,247,0.08); border: 1px solid rgba(79,142,247,0.25); color: var(--accent); font-size: 0.85rem; font-weight: 600; padding: 10px 16px; border-radius: 8px; text-decoration: none; transition: background 0.2s, border-color 0.2s; }
         .doc-link:hover { background: rgba(79,142,247,0.18); border-color: rgba(79,142,247,0.5); color: var(--text); }
@@ -221,23 +188,11 @@
         .modal-body a:hover { text-decoration: underline; }
         .modal-divider { height: 1px; background: var(--border); margin: 20px 0; }
 
-        /* Ambitions section – accent rouge/orange pour différencier visuellement */
-        #ambitions .card-icon {
-            background: rgba(247, 130, 79, 0.10);
-            border-color: rgba(247, 130, 79, 0.20);
-        }
+        #ambitions .card-icon { background: rgba(247, 130, 79, 0.10); border-color: rgba(247, 130, 79, 0.20); }
         #ambitions .card:hover { border-color: rgba(247, 130, 79, 0.45); }
         #ambitions .card::before { background: linear-gradient(90deg, #f7824f, var(--accent2)); }
-        #ambitions .comp-badge {
-            background: rgba(247, 130, 79, 0.08);
-            border-color: rgba(247, 130, 79, 0.25);
-            color: #f7a87a;
-        }
-        #ambitions .comp-badge.green {
-            background: rgba(125,211,176,0.08);
-            border-color: rgba(125,211,176,0.2);
-            color: var(--accent2);
-        }
+        #ambitions .comp-badge { background: rgba(247, 130, 79, 0.08); border-color: rgba(247, 130, 79, 0.25); color: #f7a87a; }
+        #ambitions .comp-badge.green { background: rgba(125,211,176,0.08); border-color: rgba(125,211,176,0.2); color: var(--accent2); }
 
         @media (max-width: 700px) {
             nav ul { display: none; }
@@ -307,14 +262,13 @@
 
     <div class="divider"></div>
 
-    <!-- ─── AMBITIONS – nouveau bloc ─── -->
     <section id="ambitions" class="section fade-in">
         <div class="section-label">Projet professionnel</div>
         <h2>Ambitions</h2>
         <p style="max-width:680px; font-size:1rem; color: var(--muted); margin-bottom: 12px;">
             Je ne sais pas encore précisément vers quel métier je me dirigerai, mais mon stage
             d'audit de sécurité a été une vraie révélation. En manipulant des outils comme
-            <strong style="color: var(--text);">Nmap, Burp Suite ou John the Ripper</strong>,
+            <strong style="color: var(--text);">Nmap, Wireshark ou John the Ripper</strong>,
             j'ai découvert un domaine qui m'a immédiatement passionné : comprendre comment les systèmes
             peuvent être compromis pour mieux les défendre.
         </p>
@@ -324,19 +278,16 @@
             C'est une piste que je souhaite explorer sérieusement après le BTS.
         </p>
         <div class="cards-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-
             <div class="card">
                 <div class="card-icon">💡</div>
                 <h3>Ce que le stage a déclenché</h3>
                 <p>Lors de mon stage d'audit, j'ai eu l'occasion d'utiliser des outils offensifs en environnement contrôlé. Voir concrètement comment une vulnérabilité peut être exploitée — et comment s'en prémunir — a été une expérience marquante.</p>
                 <ul>
                     <li>Nmap – Cartographie réseau et détection de services</li>
-                    <li>Burp Suite – Analyse de trafic web</li>
                     <li>John the Ripper – Test de robustesse des mots de passe</li>
                     <li>Wireshark – Analyse de paquets réseau</li>
                 </ul>
             </div>
-
             <div class="card">
                 <div class="card-icon">🧭</div>
                 <h3>Une orientation à construire</h3>
@@ -346,7 +297,6 @@
                     <span class="comp-badge green">En cours d'exploration</span>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -388,7 +338,7 @@
                 <li style="font-size:0.875rem;color:var(--muted);padding:4px 0 4px 16px;position:relative;"><span style="position:absolute;left:0;color:var(--accent);font-weight:700;">›</span>Tests d'intrusion (pentesting) en environnement contrôlé</li>
                 <li style="font-size:0.875rem;color:var(--muted);padding:4px 0 4px 16px;position:relative;"><span style="position:absolute;left:0;color:var(--accent);font-weight:700;">›</span>Analyse des vulnérabilités et rédaction de rapports d'audit détaillés</li>
                 <li style="font-size:0.875rem;color:var(--muted);padding:4px 0 4px 16px;position:relative;"><span style="position:absolute;left:0;color:var(--accent);font-weight:700;">›</span>Formulation de recommandations et accompagnement à la mise en conformité</li>
-                <li style="font-size:0.875rem;color:var(--muted);padding:4px 0 4px 16px;position:relative;"><span style="position:absolute;left:0;color:var(--accent);font-weight:700;">›</span>Outils utilisés : Nmap, Metasploit, Burp Suite, Wireshark, John the Ripper</li>
+                <li style="font-size:0.875rem;color:var(--muted);padding:4px 0 4px 16px;position:relative;"><span style="position:absolute;left:0;color:var(--accent);font-weight:700;">›</span>Outils utilisés : Nmap, Wireshark, John the Ripper</li>
             </ul>
         </div>
 
@@ -496,7 +446,7 @@
                     <span class="comp-badge">Mode projet</span>
                     <span class="comp-badge green">Dvpt professionnel</span>
                 </div>
-                <a href="doc_technique_ppe.docx" download class="doc-link">📄 Télécharger la documentation PPE – Docker</a>
+                <a href="https://docs.google.com/document/d/1tzBJCUfov_OWjZpQkRv15JsDIlNdCkRn/edit" target="_blank" class="doc-link">📄 Voir la documentation PPE – Docker</a>
             </div>
 
             <div class="card">
